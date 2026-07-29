@@ -12,8 +12,8 @@ const CONFIG = {
 
   // Los premios van en orden: el primero de la lista es el 1° premio.
   premios: [
-    "Colgante con dije, pulsera y birome Parker",
-    "Anillo",
+    "Colgante con dije, Pulsera y Birome Parker",
+    "Anillo de plata",
     "Aros a elección"
   ],
 
