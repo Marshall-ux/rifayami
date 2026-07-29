@@ -374,6 +374,29 @@
   .acciones { display: flex; gap: 10px; margin-top: 6px; }
   .acciones .btn { flex: 1; }
 
+  /* Aviso si config.js tiene un error y la página no puede arrancar */
+  .fallo {
+    max-width: 620px;
+    margin: 40px auto;
+    background: color-mix(in srgb, #ef4444 10%, var(--surface));
+    border: 1px solid color-mix(in srgb, #ef4444 45%, var(--line));
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .fallo h2 { color: #ef4444; margin-top: 0; }
+  .fallo h2::before { background: #ef4444; }
+  .fallo p { margin: 0 0 10px; font-size: .92rem; }
+  .fallo code {
+    background: var(--surface-2); border: 1px solid var(--line);
+    border-radius: 6px; padding: 1px 6px; font-size: .88em;
+  }
+  .fallo pre {
+    background: var(--surface-2); border: 1px solid var(--line);
+    border-radius: 10px; padding: 12px; overflow-x: auto;
+    font-size: .82rem; margin: 10px 0;
+  }
+  .fallo .detalle { color: var(--muted); font-size: .8rem; margin-top: 14px; }
+
   footer.pie {
     text-align: center; color: var(--muted);
     font-size: .78rem; padding: 32px 16px 8px;
@@ -497,6 +520,36 @@
   /* --- Utilidades ---------------------------------------------------- */
 
   const $ = (id) => document.getElementById(id);
+
+  /* Si config.js no se pudo leer, la página quedaría en blanco y nadie
+     sabría por qué. Mejor decir en pantalla qué revisar. */
+  function mostrarFallo(detalle) {
+    document.body.innerHTML =
+      '<div class="fallo">' +
+        '<h2>La rifa no pudo cargar</h2>' +
+        '<p>El archivo <code>config.js</code> tiene un error y el navegador ' +
+          'no lo puede leer. La causa casi siempre es <b>una coma que falta</b> ' +
+          'al final de una línea.</p>' +
+        '<p>Revisá que cada línea termine con coma, así:</p>' +
+        '<pre>  vendidos: [12, 17],\n  reservados: [],</pre>' +
+        '<p>Fijate sobre todo en las líneas de <code>vendidos</code> y ' +
+          '<code>reservados</code>. Corregilo en GitHub y en un par de ' +
+          'minutos la página vuelve sola.</p>' +
+        '<p class="detalle">Detalle técnico: ' + detalle + '</p>' +
+      '</div>';
+  }
+
+  if (typeof CONFIG === "undefined") {
+    mostrarFallo("no se pudo cargar config.js (revisá comas y comillas)");
+    return;
+  }
+
+  const faltantes = ["titulo", "premios", "instrucciones", "totalNumeros", "precio", "whatsapp"]
+    .filter((campo) => CONFIG[campo] === undefined);
+  if (faltantes.length) {
+    mostrarFallo("faltan estos campos en config.js: " + faltantes.join(", "));
+    return;
+  }
 
   // Convierte [5, 12, [100, 110]] en un Set con todos los números incluidos.
   function expandir(lista) {

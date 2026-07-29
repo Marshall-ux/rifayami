@@ -51,14 +51,20 @@ const CONFIG = {
      Acá es donde marcás lo que se va vendiendo.
      Separá con comas. Podés usar rangos con la forma [inicio, fin].
 
+     ⚠️ MUY IMPORTANTE: las dos líneas tienen que terminar con COMA.
+        Si borrás la coma, la página se queda en "Cargando..." y no anda.
+
+            vendidos: [12, 17],
+                            ↑ esta coma NO se toca
+
      Ejemplos válidos:
-       vendidos: [5, 12, 40]                 → sueltos
-       vendidos: [5, 12, [100, 110], 250]    → sueltos + del 100 al 110
-       vendidos: []                          → ninguno todavía
+       vendidos: [5, 12, 40],                → sueltos
+       vendidos: [5, 12, [100, 110], 250],   → sueltos + del 100 al 110
+       vendidos: [],                         → ninguno todavía
      ====================================================================== */
 
   // PAGADOS (se ven en gris y no se pueden elegir)
-  vendidos: [12,17]
+  vendidos: [12, 17],
 
   // RESERVADOS, esperando el pago (se ven en amarillo y no se pueden elegir)
   reservados: [],
