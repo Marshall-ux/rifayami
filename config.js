@@ -64,9 +64,9 @@ const CONFIG = {
      ====================================================================== */
 
   // PAGADOS (se ven en gris y no se pueden elegir)
-  vendidos: [12, 17],
+  vendidos: [6,7,12,15,17,24],
 
   // RESERVADOS, esperando el pago (se ven en amarillo y no se pueden elegir)
-  reservados: [],
+  reservados: [1,304,304,444,456,501,508],
 
 };
