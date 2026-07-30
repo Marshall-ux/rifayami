@@ -19,7 +19,7 @@ const CONFIG = {
 
   fechaSorteo: "14 de agosto",
 
-  totalNumeros: 600,      // del 1 al 600
+  totalNumeros: 350,      // del 1 al 350
 
   /* ⚠️ REVISAR: cuánto sale cada número. Cambialo por el precio real. */
   precio: 5000,
@@ -67,6 +67,6 @@ const CONFIG = {
   vendidos: [6, 7, 12, 15, 17, 24],
 
   // RESERVADOS, esperando el pago (se ven en amarillo y no se pueden elegir)
-  reservados: [1, 224, 304, 444, 456, 501, 508],
+  reservados: [1, 224, 304],
 
 };
