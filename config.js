@@ -8,13 +8,13 @@ const CONFIG = {
 
   /* --- Datos de la rifa ------------------------------------------------ */
 
-  titulo: "RIFA DE JOYAS",
+  titulo: "RIFA DE JOYAS BRILLÁ Y GANÁ",
 
   // Los premios van en orden: el primero de la lista es el 1° premio.
   premios: [
-    "Colgante con dije, Pulsera y Birome Parker",
+    "Cadena con dije, Pulsera de plata y Birome Parker",
     "Anillo de plata",
-    "Aros a elección"
+    "Aros de plata a elección"
   ],
 
   fechaSorteo: "14 de agosto",
@@ -64,7 +64,7 @@ const CONFIG = {
      ====================================================================== */
 
   // PAGADOS (se ven en gris y no se pueden elegir)
-  vendidos: [6, 7, 12, 15, 17, 24, 274, 346 ],
+  vendidos: [6, 7, 12, 15, 17, 21, 24, 274, 346 ],
 
   // RESERVADOS, esperando el pago (se ven en amarillo y no se pueden elegir)
   reservados: [111, 224, 304],
